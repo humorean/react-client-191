@@ -1,18 +1,25 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Grid } from 'semantic-ui-react';
 
 import Upcoming from './home/Upcoming';
 import MissionStatement from './home/MissionStatement';
-import TweeterFeeds from './home/TweeterFeeds';
+import VisionStatement from './home/VisionStatement';
+import BriefHistory from './home/BriefHistory';
+// import TweeterFeeds from './home/TweeterFeeds';
 
 class Home extends React.Component{
     render(){
         return(
-            <div className='home ui three column doubling stackable grid container'>
-                <MissionStatement />
-                <Upcoming />
-                <TweeterFeeds />
-            </div>
+            <Grid className='home ui two column doubling stackable grid container'>
+                <Grid.Column width={10}>
+                    <MissionStatement />
+                    <VisionStatement />
+                    <BriefHistory />
+                </Grid.Column>
+                <Grid.Column width={5}>
+                    <Upcoming />
+                </Grid.Column>
+            </Grid>
         )
     }
 }

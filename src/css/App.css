@@ -1,0 +1,33 @@
+.footer{
+  position: fixed;
+  top: 90%;
+}
+
+.history-detail img{
+  max-width: 500px;
+}
+
+.high-lighted{
+  border-bottom: 3px solid rgb(28, 141, 185);
+}
+
+.nav li{
+  display: inline-block;
+}
+
+.nav li a{
+  padding: 5px 5px 2px;
+}
+
+.nav{
+  text-align: center;
+}
+
+/* HOME */
+
+.home-passage{
+  margin-bottom: 20px;
+}
+.home-passage::after{
+  content: br
+}

@@ -1,51 +1,25 @@
+// Navigation Bar to navigate to different pages:
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import { setNavigation } from '../../actions';
 
-export default class MenuExampleBasic extends Component {
-  state = {}
+import {selectNav} from '../../util';
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
+class Navigation extends React.PureComponent {
   render() {
-    const { activeItem } = this.state
-
     return (
-      <Menu>
-        <Link to='/'>
-            <Menu.Item
-            name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
-            >
-            Home
-            </Menu.Item>
-        </Link>
-
-        <Link to='/history'>
-            <Menu.Item name='history' active={activeItem === 'history'} onClick={this.handleItemClick}>
-            History
-            </Menu.Item>
-        </Link>
-
-        <Link to='/ensembles'>
-            <Menu.Item name='ensembles' active={activeItem === 'ensembles'} onClick={this.handleItemClick}>
-                Ensembles
-            </Menu.Item>
-        </Link>
-
-        <Link to='/career'>
-            <Menu.Item name='career' active={activeItem === 'career'} onClick={this.handleItemClick}>
-                Career
-            </Menu.Item>
-        </Link>
-
-        <Link to='/contact'>
-            <Menu.Item name='contact' active={activeItem === 'contact'} onClick={this.handleItemClick}>
-                Contact Us
-            </Menu.Item>
-        </Link>
-      </Menu>
+      <div>
+        <ul className="nav">
+          <li><NavLink exact activeClassName='high-lighted' to="/" onClick={selectNav}>Home</NavLink></li>
+          <li><NavLink activeClassName='high-lighted' to="/history" onClick={selectNav}>History</NavLink></li>
+          <li><NavLink activeClassName='high-lighted' to="/gallery" onClick={selectNav}>Gallery</NavLink></li>
+          <li><NavLink activeClassName='high-lighted' to="/career" onClick={selectNav}>Career</NavLink></li>
+          <li><NavLink activeClassName='high-lighted' to="/contact" onClick={selectNav}>Contact</NavLink></li>
+        </ul>
+      </div>
     )
   }
 }
+
+export default Navigation;

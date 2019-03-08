@@ -1,9 +1,16 @@
 import React from 'react';
-import Home from './Home';
-import History from './History';
 import {BrowserRouter,Route, Link} from 'react-router-dom';
 
+import '../css/App.css';
+
+
+import Home from './Home';
+import History from './History';
 import Navigation from './header/Navigation';
+import Gallery from './Gallery';
+import Career from './Career';
+import Contact from './Contact';
+import Footer from './Footer';
 
 class App extends React.Component{
   render(){
@@ -13,12 +20,18 @@ class App extends React.Component{
           <div className='logo'></div>
         </div>
         <BrowserRouter>
-          <div>
+          <div className='browser-router'>
             <Navigation />
-            <Route path='/' exact component={Home} />
-            <Route path='/history' component={History} />
+            <div className='routes-container'>
+              <Route path='/' exact component={Home} />
+              <Route path='/history' component={History} />
+              <Route path='/gallery' component={Gallery} />
+              <Route path='/career' component={Career} />
+              <Route path='/contact' component={Contact} />
+            </div>
           </div>
         </BrowserRouter>
+        <Footer />
       </div>
     )
   }
